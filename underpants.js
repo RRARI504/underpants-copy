@@ -21,6 +21,11 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+_.indentity = function(value){
+    return value;
+
+};
+
 
 /** _.typeOf
 * Arguments:
