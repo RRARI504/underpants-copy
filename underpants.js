@@ -310,6 +310,34 @@ _.map = function(collection, func){
 */
 
 
+_.every = function(collection, func){
+    if(Array.isArray(collection)){
+        if(func === undefined){
+            for(let i = 0; i < collection.length; i++){
+                if(!collection[i]){
+                    return false;
+
+                }
+
+            }
+
+
+        }
+
+    } else {
+
+    }
+
+};
+
+
+
+
+
+
+
+
+
 /** _.some
 * Arguments:
 *   1) A collection
