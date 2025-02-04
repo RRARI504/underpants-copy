@@ -21,7 +21,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.indentity = function(value){
+_.identity = function(value){
     return value;
 
 };
@@ -47,6 +47,23 @@ _.indentity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value){
+    if(value === null){
+        return "null";
+    }
+    if(Array.isArray(value)){
+        return "array";
+    }
+
+    return typeof value;
+}
+
+
+
+
+
+
+
 
 /** _.first
 * Arguments:
@@ -65,6 +82,25 @@ _.indentity = function(value){
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+
+_.first = function(arr, num){
+    if(!(Array.isArray(arr))){
+        return []
+    }
+
+    if(typeof num != 'number' || isNaN(num)){
+        return arr[0];
+
+    }
+
+    return arr.slice(0, num);
+}
+
+
+
+
+
 
 
 /** _.last
@@ -198,6 +234,10 @@ _.indentity = function(value){
 */
 
 
+
+
+
+
 /** _.map
 * Arguments:
 *   1) A collection
@@ -213,6 +253,27 @@ _.indentity = function(value){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+_.map = function(collection, func){
+    const output = []; //output array 
+    if(Array.isArray(collection)){
+        for(i = 0; i < collection.length; i++){
+
+
+        }
+
+
+    } else{
+
+    }
+
+
+};
+
+
+
+
+
 
 
 /** _.pluck
