@@ -132,6 +132,11 @@ _.last = function(arr, num){
 
     }
 
+    if(num < 0){
+        return [];
+
+    }
+
     return arr.slice(-num)
 
 
@@ -156,6 +161,20 @@ _.last = function(arr, num){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(arr, value){
+    return arr.indexOf(value[0])
+
+}
+
+
+
+
+
+
+
+
+
+
 
 /** _.contains
 * Arguments:
@@ -171,6 +190,18 @@ _.last = function(arr, num){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(arr, value){
+    return arr.includes(value)
+
+}
+
+
+
+
+
+
+
 
 
 /** _.each
@@ -190,6 +221,32 @@ _.last = function(arr, num){
 */
 
 
+_.each = function(collection, func){
+    if(Array.isArray(collection)){
+        for(var i = 0; i < collection.length; i++ ){
+            func(collection[i], i, collection)
+        }
+
+    } else if(typeof collection === 'object' && collection !== null){
+            for(var key in collection){
+                if(collection.hasOwnProperty(key)){
+                    func(collection[key], key, collection)
+                }
+                
+            }
+
+        }
+
+    };
+
+
+
+
+
+
+
+
+
 /** _.unique
 * Arguments:
 *   1) An array
@@ -199,6 +256,10 @@ _.last = function(arr, num){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+
+
+
 
 
 /** _.filter
