@@ -94,7 +94,7 @@ _.first = function(arr, num){
 
     }
 
-    return arr.slice(0, num);
+    return arr.splice(0, num);
 }
 
 
@@ -120,6 +120,24 @@ _.first = function(arr, num){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+
+
+_.last = function(arr, num){
+    if(!Array.isArray(arr)){
+        return [];
+    }
+
+    if(typeof num != 'number' || isNaN(num)){
+        return arr[arr.length - 1];
+
+    }
+
+    return arr.slice(-num)
+
+
+};
+
+
 
 
 /** _.indexOf
@@ -253,7 +271,7 @@ _.first = function(arr, num){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+/*
 _.map = function(collection, func){
     const output = []; //output array 
     if(Array.isArray(collection)){
