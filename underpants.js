@@ -469,6 +469,10 @@ _.every = function(collection, func){
 */
 
 
+
+
+
+
 /** _.extend
 * Arguments:
 *   1) An Object
