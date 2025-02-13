@@ -258,7 +258,17 @@ _.each = function(collection, func){
 */
 
 
+ _.unique = function(array){
 
+    let nodups = [];
+
+    for(var i = 0; i < array.length; i++){
+        return array.indexOf(array) === array
+    }
+
+
+
+ }
 
 
 
