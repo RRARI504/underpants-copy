@@ -342,20 +342,20 @@ _.each = function(collection, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-/*
+
 _.map = function(collection, func){
     const output = []; //output array 
-    if(Array.isArray(collection)){
+    if(Array.isArray(collection)){ //determine if collection is an array
         for(i = 0; i < collection.length; i++){
-
-
+            const result = func(collection[i], i, collection)
+            output.push(result);
         }
 
-
     } else{
+        
 
     }
-
+return output; 
 
 };
 
