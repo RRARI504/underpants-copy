@@ -291,7 +291,7 @@ _.each = function(collection, func){
 
 _.filter = function(array, func){
   
-    output = [];
+    var output = [];
     for(let i = 0; i < array.length; i++){
         if(func(array[i], i, array)){
             output.push(array[i])
@@ -317,6 +317,21 @@ console.log(_.filter([1,2,3,4,5], function(x){return x % 2 === 0}))
 */
 
 
+_.reject = function(array, func){
+
+    var output = [];
+    for(let i = 0; i < array.length; i++){
+        if(!func(array[i], i, array)){
+            output.push(array[i])
+
+        }
+
+    }
+    return output;
+}
+
+
+
 /** _.partition
 * Arguments:
 *   1) An array
@@ -337,7 +352,27 @@ console.log(_.filter([1,2,3,4,5], function(x){return x % 2 === 0}))
 */
 
 
+_.partition = function(array, func){
 
+    let truthy = []
+    let falsy = []
+
+    for(let i = 0; i < array.length; i++){ 
+        //in the two past functions we returned truthy values and falsy values, here we made two seperate 
+        //empty arrays and pushed the truthy and falsy values seperately. 
+
+        if(func(array[i], i, array)){
+            truthy.push(array[i])
+
+        }else{
+            falsy.push(array[i])
+        }
+
+    }
+
+    return [truthy, falsy]
+
+}
 
 
 
@@ -356,7 +391,7 @@ console.log(_.filter([1,2,3,4,5], function(x){return x % 2 === 0}))
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-/*
+/
 _.map = function(collection, func){
     const output = []; //output array 
     if(Array.isArray(collection)){ //determine if collection is an array
