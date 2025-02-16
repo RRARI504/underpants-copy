@@ -352,7 +352,7 @@ _.map = function(collection, func){
         }
 
     } else{
-        
+
 
     }
 return output; 
@@ -398,7 +398,6 @@ return output;
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-
 _.every = function(collection, func){
     if(Array.isArray(collection)){
         if(func === undefined){
@@ -416,6 +415,8 @@ _.every = function(collection, func){
     } else {
 
     }
+
+    return true;
 
 };
 
