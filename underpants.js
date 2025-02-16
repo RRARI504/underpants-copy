@@ -162,11 +162,11 @@ _.last = function(arr, num){
 */
 
 _.indexOf = function(arr, value){
-    return arr.indexOf(value[0])
+    return arr.indexOf(value[0]) 
 
 }
 
-
+console.log(_.indexOf(["a","b","c"], "c"))
 
 
 
@@ -259,17 +259,17 @@ _.each = function(collection, func){
 
 
  _.unique = function(array){
-
-    let nodups = [];
-
-    for(var i = 0; i < array.length; i++){
-        return array.indexOf(array) === array
-    }
-
-
+    return array.filter(function(char, index){ //the method .filter creates a new array of elements 
+        // that pass the given test. It takes a function w/ the parameter char and an index. 
+        return array.indexOf(char) === index
+        //this test return the indexOf the current charachter and sees if it is equal to the index
+        //if they are equal it means the character is the first occurence of the value in the array
+        //and is saved in the new array. Duplicates are not saved.
+        
+    });
 
  }
-
+ console.log(_.unique([1,2,2,4,5,6,5,2]))
 
 
 /** _.filter
@@ -288,6 +288,20 @@ _.each = function(collection, func){
 *   use _.each in your implementation
 */
 
+
+_.filter = function(array, func){
+  
+    output = [];
+    for(let i = 0; i < array.length; i++){
+        if(func(array[i], i, array)){
+            output.push(array[i])
+
+        }
+
+    }
+    return output;
+}
+console.log(_.filter([1,2,3,4,5], function(x){return x % 2 === 0}))
 
 /** _.reject
 * Arguments:
@@ -342,7 +356,7 @@ _.each = function(collection, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+/*
 _.map = function(collection, func){
     const output = []; //output array 
     if(Array.isArray(collection)){ //determine if collection is an array
@@ -397,7 +411,7 @@ return output;
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+/*
 _.every = function(collection, func){
     if(Array.isArray(collection)){
         if(func === undefined){
