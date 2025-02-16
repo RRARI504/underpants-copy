@@ -391,22 +391,34 @@ _.partition = function(array, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-/
+
 _.map = function(collection, func){
     const output = []; //output array 
+
     if(Array.isArray(collection)){ //determine if collection is an array
-        for(i = 0; i < collection.length; i++){
-            const result = func(collection[i], i, collection)
-            output.push(result);
+        for(let i = 0; i < collection.length; i++){//loop over the collection iterate positively
+            const result = func(collection[i], i, collection) //variable equal to our callback function
+            output.push(result)
         }
 
-    } else{
+    } else {
+        let keys = Object.keys(collection)//this gets all the keys of the object
+        for(let i = 0; i < keys.length; i++){ //loop over each key
+            let key = keys[i]//variable set to the current key in the object 
+            let result = func(collection[key], key, collection)
+            //variable result set equal to the invocation of the callback function with the current value,
+            //its key and the collection
+            output.push(result)
+
+
+        }
+
 
 
     }
 return output; 
 
-};
+}
 
 
 
