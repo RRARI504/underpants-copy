@@ -401,7 +401,7 @@ _.map = function(collection, func){
             output.push(result)
         }
 
-    } else {
+    } else { //handle objects 
         let keys = Object.keys(collection)//this gets all the keys of the object
         for(let i = 0; i < keys.length; i++){ //loop over each key
             let key = keys[i]//variable set to the current key in the object 
@@ -410,17 +410,12 @@ _.map = function(collection, func){
             //its key and the collection
             output.push(result)
 
-
         }
-
-
 
     }
 return output; 
 
 }
-
-
 
 
 
@@ -436,6 +431,23 @@ return output;
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, prop){
+    
+   return _.map(array, function(element){ //.map transforms elements in an array by applying a function to 
+    //each element 
+    return element[prop]//returning a new array with the value of the property for every element in the array
+   });
+    
+
+}
+
+
+
+
+
+
+
 
 
 /** _.every
@@ -458,7 +470,8 @@ return output;
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-/*
+
+
 _.every = function(collection, func){
     if(Array.isArray(collection)){
         if(func === undefined){
