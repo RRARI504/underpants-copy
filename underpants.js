@@ -473,16 +473,22 @@ _.pluck = function(array, prop){
 
 
 _.every = function(collection, func){
-    if(Array.isArray(collection)){
+    if(Array.isArray(collection)){ //checks if collection
         if(func === undefined){
             for(let i = 0; i < collection.length; i++){
                 if(!collection[i]){
                     return false;
                 }
             }
+        }else{ 
+            for(let i = 0; i < collection.length; i++){
+                if(!func(collection[i], i, collection)){
+                    return false;
+                }
+            }
         }
-
     } else {
+        
 
     }
 
@@ -518,6 +524,40 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+
+_.some = function(collection, func){
+
+    if(Array.isArray(collection)){ //checks if collection is an array 
+        if(func === undefined){ //
+            for(let i = 0; i < collection.length; i++){ //iterates over the collection for arrays 
+                if(!collection[i]){//
+                    return false;
+                }
+            }
+            return true
+
+        } else{
+            for(let i = 0; i < collection.length; i++){
+                if(!func(collection[i], i, collection)){
+                    return true;
+
+            }
+
+        }
+        
+        } else {
+            
+        }
+
+        }
+
+    }
+
+
+
+
+
+
 
 
 /** _.reduce
