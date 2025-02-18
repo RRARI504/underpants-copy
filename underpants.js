@@ -530,28 +530,52 @@ _.some = function(collection, func){
     if(Array.isArray(collection)){ //checks if collection is an array 
         if(func === undefined){ //
             for(let i = 0; i < collection.length; i++){ //iterates over the collection for arrays 
-                if(!collection[i]){//
-                    return false;
+                if(collection[i]){//
+                    return true;
                 }
             }
-            return true
-
+            return false
         } else{
             for(let i = 0; i < collection.length; i++){
-                if(!func(collection[i], i, collection)){
+                if(func(collection[i], i, collection)){
                     return true;
+            }
+
+        }
+        return false;
+        
+            
+    }
+
+        }
+            //basic formula for checking if an object is an object and iterating over it
+            for(let key in collection){
+                if(collection.hasOwnProperty(key)){
+                    if(func === undefined){
+                        if(collection[key]){
+                            return true
+
+                        }
+
+                    
+
+                }else{
+                    if(func(collection[key], key, collection)){
+                        return true
+
+                    }
+                }
+               
+
+
 
             }
 
         }
         
-        } else {
-            
-        }
-
-        }
 
     }
+    
 
 
 
