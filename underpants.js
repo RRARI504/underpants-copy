@@ -623,6 +623,26 @@ _.some = function(collection, func){
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
+_.extend = function(object1){
+
+    for(let i = 1; i < arguments.length; i++){
+        let object2 = arguments[i]
+
+        for(let key in object2){
+            if(object2.hasOwnProperty(key)){
+                object1[key] = object2[key]
+
+            }
+
+        }
+        
+
+    }
+    return object1;
+    
+};
+
+
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
