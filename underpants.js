@@ -604,7 +604,27 @@ _.some = function(collection, func){
 */
 
 
+_.reduce = function(array, func, seed){
+    //initialize an output (the thing we are accumulating)
+let output;
+if(seed === undefined){//this is determining when the funciton is invoked is nothing passed to the seed
+    //if so the seed parameter is undefined
+    output = array[0]; //if there is no seed value take first item in the array and make it our seed
+    for(let i = 1; i < array.length; i++){//for loop starts at one index since we assigned the output to array[0] for no seed 
+        output = func(output, array[i], i) //reassigning output to the result of invoking the callback 
+        //passing in the current output, the current item in the array and h ecurrent index
+    }//this whole part covers if there is no seed value
 
+}else{//this is for when there is a seed value 
+    output = seed
+    for(let i = 0; i < array.length; i++){
+        output = func(output, array[i], i)
+    }
+}
+return output
+
+
+}
 
 
 
